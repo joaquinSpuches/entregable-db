@@ -23,10 +23,10 @@ DROP TABLE IF EXISTS `category`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `category` (
-  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(100) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -35,7 +35,7 @@ CREATE TABLE `category` (
 
 LOCK TABLES `category` WRITE;
 /*!40000 ALTER TABLE `category` DISABLE KEYS */;
-INSERT INTO `category` VALUES (1,'musica'),(2,'accion'),(3,'blog'),(4,'horror'),(5,'ficcion'),(6,'literatura'),(7,'oscuro'),(8,'realista'),(9,'irreal'),(10,'unico');
+INSERT INTO `category` VALUES (1,'musica'),(2,'accion'),(3,'blog'),(4,'horror'),(5,'ficcion'),(6,'literatura'),(7,'oscuro'),(8,'realista'),(9,'irreal'),(10,'unico'),(11,'ilogico');
 /*!40000 ALTER TABLE `category` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -82,10 +82,10 @@ CREATE TABLE `notescategory` (
   `note_id` int(10) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `notesCategory_FK` (`note_id`),
-  KEY `notesCategory_FK_1` (`category_id`),
+  KEY `notescategory_FK_1` (`category_id`),
   CONSTRAINT `notesCategory_FK` FOREIGN KEY (`note_id`) REFERENCES `notes` (`id`),
-  CONSTRAINT `notesCategory_FK_1` FOREIGN KEY (`category_id`) REFERENCES `notescategory` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4;
+  CONSTRAINT `notescategory_FK_1` FOREIGN KEY (`category_id`) REFERENCES `category` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -94,7 +94,7 @@ CREATE TABLE `notescategory` (
 
 LOCK TABLES `notescategory` WRITE;
 /*!40000 ALTER TABLE `notescategory` DISABLE KEYS */;
-INSERT INTO `notescategory` VALUES (1,1,2),(2,2,9),(3,2,2),(4,3,5),(5,4,5),(6,4,6),(7,7,8),(8,1,9);
+INSERT INTO `notescategory` VALUES (1,1,2),(2,2,9),(3,2,2),(4,3,5),(5,4,5),(6,4,6),(7,7,8),(8,1,9),(9,10,5);
 /*!40000 ALTER TABLE `notescategory` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -136,4 +136,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-12-14 13:02:04
+-- Dump completed on 2021-12-14 14:13:16
